@@ -2,7 +2,12 @@
 // Never put secrets here; the entire website is public.
 window.SITE_DATA = {
  business:{logo:"assets/images/logo (1).png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:""},
- photos:{hero:"",trailer:"",catering:"",about:""}, // Example: "assets/images/trailer.jpg"
+ photos: {
+    hero: "",
+    trailer: "assets/images/trailer-service.webp",
+    catering: "assets/images/trailer-service.webp",
+    about: "assets/images/trailer-side.webp"
+ },
  // Prices vary by event; null means no fixed published price.
  menu:[
   {
@@ -197,8 +202,19 @@ window.SITE_DATA = {
  weekly:{Monday:null,Tuesday:null,Wednesday:null,Thursday:null,Friday:null,Saturday:null,Sunday:null}, // Replace null with {location:"Venue",address:"Street, Boise, ID",hours:"12 PM – 4 PM"}
  // DEMO prices only: set approved to true after replacing with your actual rates.
  catering:{approved:false,minimum:350,extraHour:150,packages:[{id:"classic",name:"Classic",perGuest:7},{id:"deluxe",name:"Deluxe",perGuest:10},{id:"premium",name:"Premium",perGuest:13}],addons:[{id:"dessert",name:"Additional dessert service",perGuest:3,flat:0}]},
- gallery:[
-   // {src:"assets/images/photo.jpg",alt:"Description of photo",caption:"Event name",category:"Events"}
+ gallery: [
+    {
+        src: "assets/images/trailer-service.webp",
+        alt: "Food trailer service window side",
+        caption: "Our trailer — service windows",
+        category: "Trailer"
+    },
+    {
+        src: "assets/images/trailer-side.webp",
+        alt: "Food trailer opposite side",
+        caption: "Our trailer — opposite side",
+        category: "Trailer"
+    }
  ],
  reviews:[
    // {name:"Display name",rating:5,text:"Approved testimonial",source:"Verified source"}
