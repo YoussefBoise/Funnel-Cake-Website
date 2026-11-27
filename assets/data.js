@@ -1,7 +1,7 @@
 // EDIT THIS FILE to change the menu, schedule, pricing, photos and business details.
 // Never put secrets here; the entire website is public.
 window.SITE_DATA = {
- business:{logo:"assets/images/logo.png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
+ business:{logo:"assets/images/logo (1).png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
  photos:{hero:"",trailer:"",catering:"",about:""}, // Example: "assets/images/trailer.jpg"
  // Prices vary by event; null means no fixed published price.
  menu:[
@@ -11,7 +11,7 @@ window.SITE_DATA = {
     "category": "Funnel Cakes",
     "description": "Funnel cake topped with powdered sugar.",
     "price": null,
-    "image": "assets/images/classic.webp",
+    "image": "assets/images/classic (1).webp",
     "tags": [],
     "toppings": [],
     "featured": true,
@@ -24,7 +24,7 @@ window.SITE_DATA = {
     "category": "Funnel Cakes",
     "description": "Funnel cake with strawberry, chocolate, caramel, whipped cream, powdered sugar and cinnamon.",
     "price": null,
-    "image": "assets/images/works.webp",
+    "image": "assets/images/works (1).webp",
     "tags": [],
     "toppings": [],
     "featured": true,
@@ -37,7 +37,7 @@ window.SITE_DATA = {
     "category": "Desserts",
     "description": "Deep-fried Oreo cookies.",
     "price": null,
-    "image": "assets/images/oreos.webp",
+    "image": "assets/images/oreos (1).webp",
     "tags": [],
     "toppings": [],
     "featured": true,
@@ -50,7 +50,7 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Battered and fried corn dog.",
     "price": null,
-    "image": "assets/images/corn-dog.webp",
+    "image": "assets/images/corn-dog (1).webp",
     "tags": [],
     "toppings": [],
     "featured": false,
@@ -63,7 +63,7 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Chicken strips served with hand-cut curly fries.",
     "price": null,
-    "image": "assets/images/chicken.webp",
+    "image": "assets/images/chicken (1).webp",
     "tags": [],
     "toppings": [],
     "featured": false,
@@ -76,7 +76,7 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Hand-cut curly fries.",
     "price": null,
-    "image": "assets/images/fries.webp",
+    "image": "assets/images/fries (1).webp",
     "tags": [],
     "toppings": [],
     "featured": false,
