@@ -203,5 +203,5 @@ window.SITE_DATA = {
  reviews:[
    // {name:"Display name",rating:5,text:"Approved testimonial",source:"Verified source"}
  ],
- faq:[{q:"Where can I find the trailer?",a:"Visit Events & Locations for confirmed public stops."},{q:"Can I book a private event?",a:"Call or email us directly to discuss your event. All dates require confirmation."},{q:"How much does catering cost?",a:"Cost depends on guest count, service duration and menu. Request a personalized quote."},{q:"What about food allergies?",a:"Please ask us about ingredients and shared equipment before ordering."},{q:"What if an event is cancelled?",a:"Check our public event schedule for announcements and contact us regarding private events."}]
+ faq:[{q:"Where can I find the trailer?",a:"Visit Events & Locations for confirmed public stops."},{q:"Can I book a private event?",a:"Text 208-971-0000 or email idahofunnelcake@gmail.com to discuss your event. Online booking is not available. All dates require confirmation."},{q:"How much does catering cost?",a:"Cost depends on guest count, service duration and menu. Request a personalized quote."},{q:"What about food allergies?",a:"Please ask us about ingredients and shared equipment before ordering."},{q:"What if an event is cancelled?",a:"Check our public event schedule for announcements and contact us regarding private events."}]
 };
