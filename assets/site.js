@@ -50,14 +50,16 @@ if(d.business.logo){
 }
 
 /* Potential events are separate from confirmed appearances and location banners. */
-const targetEventsBox = $("target-events");
+const targetEventsBox = $("potential-events-list");
 
-if (targetEventsBox) {
-    const targets = (d.targetEvents || [])
+if (targetEventsBox && Array.isArray(d.targetEvents)) {
+    const targets = d.targetEvents
         .filter(event => !d.events.some(confirmed => confirmed.status === "confirmed" &&
             confirmed.name === event.name &&
             confirmed.start.slice(0, 4) === String(event.year)))
         .sort((a, b) => a.priority - b.priority);
+
+    targetEventsBox.replaceChildren();
 
     for (const event of targets) {
         const article = el("article", null, "event");
