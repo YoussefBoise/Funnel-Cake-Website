@@ -3,18 +3,30 @@ const d=window.SITE_DATA,c=window.SiteCore,r=document.body.dataset.root||"", $=i
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
 const money=n=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(n);
 const fmt=s=>new Intl.DateTimeFormat("en-US",{dateStyle:"medium",timeZone:"UTC"}).format(new Date(s+"T12:00:00Z"));
-const img=(path,alt)=>{const i=el("img");i.src=r+path;i.alt=alt;i.loading="lazy";return i;};
+const img = (path, alt) => {
+    const picture = el("img");
+    picture.alt = alt;
+    picture.loading = "eager";
+    picture.src = r + path;
+    return picture;
+};
 function link(box,label,url){try{const u=new URL(url);if(!["https:","http:"].includes(u.protocol))return;const a=el("a",label);a.href=u.href;a.target="_blank";a.rel="noopener noreferrer";box.append(a);}catch{}}
 function empty(box,msg){box.append(el("p",msg,"empty"));}
 function locationBanner(){const now=new Date(),today=c.dateKey(now,d.business.timezone),day=c.weekday(now,d.business.timezone),active=c.active(d.events,today),stop=d.weekly[day];$("today").textContent=active.length?active.map(e=>e.name+" · "+e.hours).join(" / "):stop?stop.location+" · "+stop.hours:"Boise, Idaho · No confirmed stop today";const next=c.upcoming(d.events,today).find(e=>e.status==="confirmed");if($("next"))$("next").textContent=next?next.name+" · "+fmt(next.start):"Schedule coming soon";}
 locationBanner();setInterval(locationBanner,60000);$("year").textContent=new Date().getFullYear();
 const toggle=document.querySelector(".nav-toggle");toggle.onclick=()=>toggle.setAttribute("aria-expanded",String($("nav").classList.toggle("open")));
-document.querySelectorAll("[data-photo]").forEach(n => {
-    const path = d.photos[n.dataset.photo];
+document.querySelectorAll("[data-photo]").forEach(box => {
+    const path = d.photos[box.dataset.photo];
     if (!path) return;
-    const picture = img(path, "Idaho Five Star Funnel Cake " + n.dataset.photo + " photograph");
-    picture.addEventListener("load", () => n.replaceChildren(picture), { once: true });
-    if (picture.complete && picture.naturalWidth > 0) n.replaceChildren(picture);
+
+    const fallback = Array.from(box.childNodes);
+    const picture = document.createElement("img");
+    picture.alt = "Idaho Five Star Funnel Cake " + box.dataset.photo + " photograph";
+    picture.loading = "eager";
+    picture.addEventListener("error", () => box.replaceChildren(...fallback), { once: true });
+
+    box.replaceChildren(picture);
+    picture.src = r + path;
 });
 for(const [name,url] of [["Facebook",d.business.facebook],["Instagram",d.business.instagram]])if(url)link($("social"),name,url);
 function filters(id,values,render){const b=$(id);if(!b)return;for(const v of ["All",...new Set(values)]){const n=el("button",v);n.type="button";n.setAttribute("aria-pressed",String(v==="All"));n.onclick=()=>{b.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===n)));render(v);};b.append(n);}}
@@ -58,7 +70,15 @@ if(d.business.logo){
         if (picture.complete && picture.naturalWidth > 0) showLogo();
     });
  const hero=document.querySelector('[data-photo="hero"]');
- if(hero&&!d.photos.hero){const picture=img(d.business.logo,d.business.name);picture.loading="eager";picture.addEventListener("load",()=>{hero.classList.add("logo-hero");hero.replaceChildren(picture);},{once:true});}
+    if (hero && !d.photos.hero) {
+        const picture = img(d.business.logo, d.business.name);
+        const showLogo = () => {
+            hero.classList.add("logo-hero");
+            hero.replaceChildren(picture);
+        };
+        picture.addEventListener("load", showLogo, { once: true });
+        if (picture.complete && picture.naturalWidth > 0) showLogo();
+    }
 }
 
 /* Potential events are separate from confirmed appearances and location banners. */
