@@ -12,7 +12,18 @@ const toggle=document.querySelector(".nav-toggle");toggle.onclick=()=>toggle.set
 document.querySelectorAll("[data-photo]").forEach(n=>{const path=d.photos[n.dataset.photo];if(path)n.replaceChildren(img(path,"Idaho Five Star Funnel Cake "+n.dataset.photo+" photograph"));});
 for(const [name,url] of [["Facebook",d.business.facebook],["Instagram",d.business.instagram]])if(url)link($("social"),name,url);
 function filters(id,values,render){const b=$(id);if(!b)return;for(const v of ["All",...new Set(values)]){const n=el("button",v);n.type="button";n.setAttribute("aria-pressed",String(v==="All"));n.onclick=()=>{b.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===n)));render(v);};b.append(n);}}
-function menu(id,items){const box=$(id);if(!box)return;box.replaceChildren();if(!items.length)return empty(box,"Menu details coming soon.");for(const m of items){const a=el("article",null,"item"),p=el("div",null,"photo");if(m.image)p.append(img(m.image,m.name));else p.append(el("span","✦"),el("small","Photo coming soon"));const h=el("div",null,"between");h.append(el("h3",m.name),el("span",m.price==null?"Varies by event":money(m.price),"price"));a.append(p,h,el("p",m.description));if(m.toppings?.length)a.append(el("p","Toppings: "+m.toppings.join(", ")));if(m.tags?.length)a.append(el("p",m.tags.join(" · ")));if(!m.available)a.append(el("p","Currently unavailable","notice"));box.append(a);}}
+function menu(id,items){
+ const box=$(id);if(!box)return;box.replaceChildren();if(!items.length)return empty(box,"Menu details coming soon.");
+ for(const m of items){
+  const a=el("article",null,"item");
+  if(m.options?.length){
+   a.classList.add("drinks-item");const details=el("details"),summary=el("summary"),heading=el("span",m.name,"drinks-title");summary.append(heading,el("span",m.price==null?"Varies by event":money(m.price),"price"));const list=el("ul");for(const option of m.options)list.append(el("li",option));details.append(summary,el("p",m.description),list);a.append(details);box.append(a);continue;
+  }
+  const p=el("div",null,"photo");const placeholder=()=>p.replaceChildren(el("span","✦"),el("small","Photo coming soon"));
+  if(m.image){const picture=img(m.image,m.name);picture.addEventListener("error",placeholder,{once:true});p.append(picture);}else placeholder();
+  const h=el("div",null,"between");h.append(el("h3",m.name),el("span",m.price==null?"Varies by event":money(m.price),"price"));a.append(p);if(m.illustrative)a.append(el("small","Illustrative image","image-note"));a.append(h,el("p",m.description));if(m.toppings?.length)a.append(el("p","Toppings: "+m.toppings.join(", ")));if(m.tags?.length)a.append(el("p",m.tags.join(" · ")));if(!m.available)a.append(el("p","Currently unavailable","notice"));box.append(a);
+ }
+}
 menu("featured",d.menu.filter(m=>m.featured).slice(0,3));menu("menu-items",d.menu);filters("menu-filters",d.menu.map(m=>m.category),v=>menu("menu-items",d.menu.filter(m=>v==="All"||m.category===v)));
 const today=c.dateKey(new Date(),d.business.timezone),events=c.upcoming(d.events,today);
 function eventList(id,items){const b=$(id);if(!b)return;b.replaceChildren();if(!items.length)return empty(b,"No events announced. Check back for updates.");for(const e of items){const a=el("article",null,"event"),info=el("div"),links=el("div");info.append(el("h3",e.name),el("p",[e.address,e.hours].filter(Boolean).join(" · ")));if(e.description)info.append(el("p",e.description));if(e.status==="cancelled")info.append(el("strong","Cancelled"));if(e.address)link(links,"Directions ↗",c.maps(e.address));if(e.url)link(links,"Event website ↗",e.url);a.append(el("strong",fmt(e.start)+(e.end&&e.end!==e.start?" – "+fmt(e.end):"")),info,links);b.append(a);}}
@@ -30,3 +41,10 @@ if($("faq"))for(const f of d.faq){const n=el("details");n.append(el("summary",f.
 if($("reviews")){if(!d.reviews.length)empty($("reviews"),"Customer reviews coming soon.");for(const v of d.reviews){const a=el("article",null,"notice");a.append(el("p","★".repeat(Math.max(0,Math.min(5,Math.floor(v.rating||0))))),el("p",v.text),el("strong",v.name+" · "+v.source));$("reviews").append(a);}if(d.business.reviewUrl)link($("reviews"),"Read or leave a review",d.business.reviewUrl);}
 function gallery(v){const b=$("gallery");if(!b)return;b.replaceChildren();const photos=d.gallery.filter(p=>v==="All"||p.category===v);if(!photos.length)return empty(b,"Gallery coming soon.");for(const p of photos){const n=el("button",null,"gallery-btn");n.type="button";n.append(img(p.src,p.alt),el("span",p.caption));n.onclick=()=>{$("large-photo").src=r+p.src;$("large-photo").alt=p.alt;$("photo-caption").textContent=p.caption;$("lightbox").showModal();};b.append(n);}}
 if($("gallery")){gallery("All");filters("gallery-filters",d.gallery.map(p=>p.category),gallery);$("close").onclick=()=>$("lightbox").close();}
+
+/* Display the supplied business logo when its image asset is installed. */
+if(d.business.logo){
+ document.querySelectorAll(".brand").forEach(brand=>{const picture=img(d.business.logo,d.business.name);picture.className="brand-logo";picture.loading="eager";picture.addEventListener("load",()=>brand.replaceChildren(picture),{once:true});});
+ const hero=document.querySelector('[data-photo="hero"]');
+ if(hero&&!d.photos.hero){const picture=img(d.business.logo,d.business.name);picture.loading="eager";picture.addEventListener("load",()=>{hero.classList.add("logo-hero");hero.replaceChildren(picture);},{once:true});}
+}
