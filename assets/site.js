@@ -9,7 +9,13 @@ function empty(box,msg){box.append(el("p",msg,"empty"));}
 function locationBanner(){const now=new Date(),today=c.dateKey(now,d.business.timezone),day=c.weekday(now,d.business.timezone),active=c.active(d.events,today),stop=d.weekly[day];$("today").textContent=active.length?active.map(e=>e.name+" · "+e.hours).join(" / "):stop?stop.location+" · "+stop.hours:"Boise, Idaho · No confirmed stop today";const next=c.upcoming(d.events,today).find(e=>e.status==="confirmed");if($("next"))$("next").textContent=next?next.name+" · "+fmt(next.start):"Schedule coming soon";}
 locationBanner();setInterval(locationBanner,60000);$("year").textContent=new Date().getFullYear();
 const toggle=document.querySelector(".nav-toggle");toggle.onclick=()=>toggle.setAttribute("aria-expanded",String($("nav").classList.toggle("open")));
-document.querySelectorAll("[data-photo]").forEach(n=>{const path=d.photos[n.dataset.photo];if(path)n.replaceChildren(img(path,"Idaho Five Star Funnel Cake "+n.dataset.photo+" photograph"));});
+document.querySelectorAll("[data-photo]").forEach(n => {
+    const path = d.photos[n.dataset.photo];
+    if (!path) return;
+    const picture = img(path, "Idaho Five Star Funnel Cake " + n.dataset.photo + " photograph");
+    picture.addEventListener("load", () => n.replaceChildren(picture), { once: true });
+    if (picture.complete && picture.naturalWidth > 0) n.replaceChildren(picture);
+});
 for(const [name,url] of [["Facebook",d.business.facebook],["Instagram",d.business.instagram]])if(url)link($("social"),name,url);
 function filters(id,values,render){const b=$(id);if(!b)return;for(const v of ["All",...new Set(values)]){const n=el("button",v);n.type="button";n.setAttribute("aria-pressed",String(v==="All"));n.onclick=()=>{b.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===n)));render(v);};b.append(n);}}
 function menu(id,items){
