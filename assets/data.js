@@ -102,6 +102,93 @@ window.SITE_DATA = {
     "available": true
   }
 ],
+    // Potential events only. Do not add to the confirmed schedule until booked.
+    targetEvents: [
+        {
+            "priority": 1,
+            "name": "Western Idaho Fair",
+            "location": "Garden City, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 2,
+            "name": "Eastern Idaho State Fair",
+            "location": "Blackfoot, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 3,
+            "name": "Canyon County Fair",
+            "location": "Caldwell, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 4,
+            "name": "Emmett Cherry Festival",
+            "location": "Emmett, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 5,
+            "name": "Boise Music Festival",
+            "location": "Garden City, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 6,
+            "name": "Snake River Stampede",
+            "location": "Nampa, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 7,
+            "name": "Meridian Dairy Days",
+            "location": "Meridian, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 8,
+            "name": "Spirit of Boise Balloon Classic",
+            "location": "Boise, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 9,
+            "name": "Art in the Park",
+            "location": "Boise, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 10,
+            "name": "Hyde Park Street Fair",
+            "location": "Boise, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 11,
+            "name": "Kuna Days",
+            "location": "Kuna, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        },
+        {
+            "priority": 12,
+            "name": "Eagle Fun Days",
+            "location": "Eagle, Idaho",
+            "year": 2027,
+            "status": "unconfirmed"
+        }
+    ],
  // Add only public, confirmed events. Dates YYYY-MM-DD.
  events:[
    // {name:"Event",start:"2027-06-01",end:"2027-06-02",hours:"11 AM – 8 PM",address:"Street, City, ID",description:"",url:"https://example.com",status:"confirmed"}
