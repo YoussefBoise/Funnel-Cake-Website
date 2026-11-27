@@ -48,3 +48,36 @@ if(d.business.logo){
  const hero=document.querySelector('[data-photo="hero"]');
  if(hero&&!d.photos.hero){const picture=img(d.business.logo,d.business.name);picture.loading="eager";picture.addEventListener("load",()=>{hero.classList.add("logo-hero");hero.replaceChildren(picture);},{once:true});}
 }
+
+/* Potential events are separate from confirmed appearances and location banners. */
+const targetEventsBox = $("target-events");
+
+if (targetEventsBox) {
+    const targets = (d.targetEvents || [])
+        .filter(event => !d.events.some(confirmed => confirmed.status === "confirmed" &&
+            confirmed.name === event.name &&
+            confirmed.start.slice(0, 4) === String(event.year)))
+        .sort((a, b) => a.priority - b.priority);
+
+    for (const event of targets) {
+        const article = el("article", null, "event");
+        const info = el("div");
+
+        info.append(
+            el("h3", event.name),
+            el("p", event.location)
+        );
+
+        article.append(
+            el("strong", String(event.year)),
+            info,
+            el("span", "Not confirmed")
+        );
+
+        targetEventsBox.append(article);
+    }
+
+    if (!targets.length) {
+        empty(targetEventsBox, "Check our confirmed schedule for updates.");
+    }
+}
