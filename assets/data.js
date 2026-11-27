@@ -1,10 +1,131 @@
 // EDIT THIS FILE to change the menu, schedule, pricing, photos and business details.
 // Never put secrets here; the entire website is public.
 window.SITE_DATA = {
- business:{name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"",phone:"",facebook:"",instagram:"",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
+ business:{name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
  photos:{hero:"",trailer:"",catering:"",about:""}, // Example: "assets/images/trailer.jpg"
- // Menu starter entry only; replace with your actual offerings, prices and images.
- menu:[{id:"classic",name:"Classic Funnel Cake",category:"Funnel Cakes",description:"Menu details coming soon.",price:null,image:"",tags:[],toppings:[],featured:true,available:true}],
+ // Prices vary by event; null means no fixed published price.
+ menu:[
+  {
+    "id": "classic",
+    "name": "Classic Funnel Cake",
+    "category": "Funnel Cakes",
+    "description": "Funnel cake topped with powdered sugar.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": true,
+    "available": true
+  },
+  {
+    "id": "works",
+    "name": "Funnel Cake Works",
+    "category": "Funnel Cakes",
+    "description": "Funnel cake with strawberry, chocolate, caramel, whipped cream, powdered sugar and cinnamon.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": true,
+    "available": true
+  },
+  {
+    "id": "oreos",
+    "name": "Deep-Fried Oreos",
+    "category": "Desserts",
+    "description": "Deep-fried Oreo cookies.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": true,
+    "available": true
+  },
+  {
+    "id": "corn-dog",
+    "name": "Corn Dog",
+    "category": "Savory",
+    "description": "Battered and fried corn dog.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "chicken",
+    "name": "Chicken Strips & Hand-Cut Curly Fries",
+    "category": "Savory",
+    "description": "Chicken strips served with hand-cut curly fries.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "fries",
+    "name": "Hand-Cut Curly Fries",
+    "category": "Savory",
+    "description": "Hand-cut curly fries.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "soda",
+    "name": "Soda",
+    "category": "Drinks",
+    "description": "Soft drinks.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "category": "Drinks",
+    "description": "Drinking water.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "lemonade",
+    "name": "Lemonade",
+    "category": "Drinks",
+    "description": "Lemonade.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  },
+  {
+    "id": "tea",
+    "name": "Iced Tea",
+    "category": "Drinks",
+    "description": "Iced tea.",
+    "price": null,
+    "image": "",
+    "tags": [],
+    "toppings": [],
+    "featured": false,
+    "available": true
+  }
+],
  // Add only public, confirmed events. Dates YYYY-MM-DD.
  events:[
    // {name:"Event",start:"2027-06-01",end:"2027-06-02",hours:"11 AM – 8 PM",address:"Street, City, ID",description:"",url:"https://example.com",status:"confirmed"}
