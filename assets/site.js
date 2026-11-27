@@ -44,7 +44,7 @@ if($("gallery")){gallery("All");filters("gallery-filters",d.gallery.map(p=>p.cat
 
 /* Display the supplied business logo when its image asset is installed. */
 if(d.business.logo){
- document.querySelectorAll(".brand").forEach(brand=>{const picture=img(d.business.logo,d.business.name);picture.className="brand-logo";picture.loading="eager";picture.addEventListener("load",()=>brand.replaceChildren(picture),{once:true});});
+ document.querySelectorAll(".brand").forEach(brand=>{const picture=img(d.business.logo,d.business.name);picture.className="brand-logo";picture.loading="eager";picture.width=90;picture.height=60;Object.assign(picture.style,{width:"90px",height:"60px",maxWidth:"90px",maxHeight:"60px",objectFit:"contain",display:"block"});picture.addEventListener("load",()=>{Object.assign(brand.style,{width:"90px",height:"60px",flex:"0 0 90px"});brand.replaceChildren(picture);},{once:true});});
  const hero=document.querySelector('[data-photo="hero"]');
  if(hero&&!d.photos.hero){const picture=img(d.business.logo,d.business.name);picture.loading="eager";picture.addEventListener("load",()=>{hero.classList.add("logo-hero");hero.replaceChildren(picture);},{once:true});}
 }
