@@ -1,7 +1,7 @@
 // EDIT THIS FILE to change the menu, schedule, pricing, photos and business details.
 // Never put secrets here; the entire website is public.
 window.SITE_DATA = {
- business:{logo:"assets/images/logo (1).png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
+ business:{logo:"assets/images/logo (1).png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:""},
  photos:{hero:"",trailer:"",catering:"",about:""}, // Example: "assets/images/trailer.jpg"
  // Prices vary by event; null means no fixed published price.
  menu:[
@@ -203,5 +203,5 @@ window.SITE_DATA = {
  reviews:[
    // {name:"Display name",rating:5,text:"Approved testimonial",source:"Verified source"}
  ],
- faq:[{q:"Where can I find the trailer?",a:"Visit Events & Locations for confirmed public stops."},{q:"Can I book a private event?",a:"Submit an inquiry on the Book Us page. All dates require confirmation."},{q:"How much does catering cost?",a:"Cost depends on guest count, service duration and menu. Request a personalized quote."},{q:"What about food allergies?",a:"Please ask us about ingredients and shared equipment before ordering."},{q:"What if an event is cancelled?",a:"Check our public event schedule for announcements and contact us regarding private events."}]
+ faq:[{q:"Where can I find the trailer?",a:"Visit Events & Locations for confirmed public stops."},{q:"Can I book a private event?",a:"Call or email us directly to discuss your event. All dates require confirmation."},{q:"How much does catering cost?",a:"Cost depends on guest count, service duration and menu. Request a personalized quote."},{q:"What about food allergies?",a:"Please ask us about ingredients and shared equipment before ordering."},{q:"What if an event is cancelled?",a:"Check our public event schedule for announcements and contact us regarding private events."}]
 };
