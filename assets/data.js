@@ -1,7 +1,7 @@
 // EDIT THIS FILE to change the menu, schedule, pricing, photos and business details.
 // Never put secrets here; the entire website is public.
 window.SITE_DATA = {
- business:{name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
+ business:{logo:"assets/images/logo.png",name:"Idaho Five Star Funnel Cake LLC",city:"Boise, Idaho",timezone:"America/Boise",email:"idahofunnelcake@gmail.com",phone:"208-971-0000",facebook:"",instagram:"https://www.instagram.com/idahofunnelcake/",reviewUrl:"",formEndpoint:""}, // Add a real HTTPS form service endpoint to send inquiries.
  photos:{hero:"",trailer:"",catering:"",about:""}, // Example: "assets/images/trailer.jpg"
  // Prices vary by event; null means no fixed published price.
  menu:[
@@ -11,11 +11,12 @@ window.SITE_DATA = {
     "category": "Funnel Cakes",
     "description": "Funnel cake topped with powdered sugar.",
     "price": null,
-    "image": "",
+    "image": "assets/images/classic.webp",
     "tags": [],
     "toppings": [],
     "featured": true,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
     "id": "works",
@@ -23,11 +24,12 @@ window.SITE_DATA = {
     "category": "Funnel Cakes",
     "description": "Funnel cake with strawberry, chocolate, caramel, whipped cream, powdered sugar and cinnamon.",
     "price": null,
-    "image": "",
+    "image": "assets/images/works.webp",
     "tags": [],
     "toppings": [],
     "featured": true,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
     "id": "oreos",
@@ -35,11 +37,12 @@ window.SITE_DATA = {
     "category": "Desserts",
     "description": "Deep-fried Oreo cookies.",
     "price": null,
-    "image": "",
+    "image": "assets/images/oreos.webp",
     "tags": [],
     "toppings": [],
     "featured": true,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
     "id": "corn-dog",
@@ -47,11 +50,12 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Battered and fried corn dog.",
     "price": null,
-    "image": "",
+    "image": "assets/images/corn-dog.webp",
     "tags": [],
     "toppings": [],
     "featured": false,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
     "id": "chicken",
@@ -59,11 +63,12 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Chicken strips served with hand-cut curly fries.",
     "price": null,
-    "image": "",
+    "image": "assets/images/chicken.webp",
     "tags": [],
     "toppings": [],
     "featured": false,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
     "id": "fries",
@@ -71,55 +76,26 @@ window.SITE_DATA = {
     "category": "Savory",
     "description": "Hand-cut curly fries.",
     "price": null,
-    "image": "",
+    "image": "assets/images/fries.webp",
     "tags": [],
     "toppings": [],
     "featured": false,
-    "available": true
+    "available": true,
+    "illustrative": true
   },
   {
-    "id": "soda",
-    "name": "Soda",
+    "id": "drinks",
+    "name": "Drinks",
     "category": "Drinks",
-    "description": "Soft drinks.",
+    "description": "Choose from our refreshing beverages.",
     "price": null,
     "image": "",
-    "tags": [],
-    "toppings": [],
-    "featured": false,
-    "available": true
-  },
-  {
-    "id": "water",
-    "name": "Water",
-    "category": "Drinks",
-    "description": "Drinking water.",
-    "price": null,
-    "image": "",
-    "tags": [],
-    "toppings": [],
-    "featured": false,
-    "available": true
-  },
-  {
-    "id": "lemonade",
-    "name": "Lemonade",
-    "category": "Drinks",
-    "description": "Lemonade.",
-    "price": null,
-    "image": "",
-    "tags": [],
-    "toppings": [],
-    "featured": false,
-    "available": true
-  },
-  {
-    "id": "tea",
-    "name": "Iced Tea",
-    "category": "Drinks",
-    "description": "Iced tea.",
-    "price": null,
-    "image": "",
+    "options": [
+      "Soda",
+      "Water",
+      "Lemonade",
+      "Iced Tea"
+    ],
     "tags": [],
     "toppings": [],
     "featured": false,
