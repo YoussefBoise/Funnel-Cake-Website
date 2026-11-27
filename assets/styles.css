@@ -866,3 +866,23 @@ footer a:hover {
 .nav-wrap nav {
     flex-shrink: 1;
 }
+
+/* Show the entire trailer within its photo box, without cropping. */
+.photo[data-photo="trailer"],
+.photo[data-photo="about"],
+.photo[data-photo="catering"] {
+    aspect-ratio: 16 / 9;
+    background: var(--soft);
+}
+
+.photo[data-photo="trailer"] img,
+.photo[data-photo="about"] img,
+.photo[data-photo="catering"] img {
+    object-fit: contain;
+}
+
+.gallery-btn img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: var(--soft);
+}
