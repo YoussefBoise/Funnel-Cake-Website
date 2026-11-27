@@ -6,7 +6,8 @@
     --soft: #f3f3f3;
     --muted: #555;
     --line: #d4d4d4;
-    --max: 1180px;
+    --max: 1680px;
+    --gutter: clamp(24px, 3.5vw, 64px);
 }
 
 * {
@@ -36,7 +37,7 @@ h1, h2 {
 }
 
 h1 {
-    font-size: clamp(3.4rem,8vw,7rem);
+    font-size: clamp(3.4rem, 7vw, 8rem);
     text-transform: uppercase;
 }
 
@@ -80,7 +81,7 @@ img {
 }
 
 .wrap {
-    width: min(var(--max),calc(100% - 48px));
+    width: min(var(--max), calc(100% - var(--gutter) - var(--gutter)));
     margin: auto;
 }
 
@@ -186,7 +187,7 @@ header {
 }
 
 .hero {
-    padding-block: 72px;
+    padding-block: clamp(56px, 6vw, 104px);
 }
 
 .hero h1 {
@@ -306,7 +307,7 @@ header {
 }
 
 .section {
-    padding-block: 56px;
+    padding-block: clamp(48px, 5vw, 88px);
     border-bottom: 1px solid var(--line);
 }
 
@@ -321,7 +322,7 @@ form .button {
 .grid {
     display: grid;
     grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 24px;
+    gap: clamp(18px, 2vw, 32px);
     margin-top: 24px;
 }
 
@@ -353,11 +354,11 @@ form .button {
 }
 
 .intro {
-    padding-block: 62px 25px;
+    padding-block: clamp(56px, 6vw, 96px) 25px;
 }
 
 .intro h1 {
-    font-size: clamp(3rem,7vw,5.8rem);
+    font-size: clamp(3rem, 6.5vw, 7rem);
     margin-top: 12px;
 }
 
@@ -749,9 +750,9 @@ footer a:hover {
 
 .hero .photo.logo-hero {
     background: transparent;
-    width: min(100%,420px);
+    width: min(100%, 520px);
     aspect-ratio: 1/1;
-    max-height: 420px;
+    max-height: 520px;
     justify-self: center;
     border: 0;
     outline: 0;
@@ -897,4 +898,17 @@ footer a:hover {
     aspect-ratio: 16 / 9;
     object-fit: contain;
     background: var(--soft);
+}
+
+/* Wide desktop layout; the navigation height and mobile breakpoints remain unchanged. */
+@media (min-width: 1051px) {
+    header .nav-wrap,
+    .top .wrap {
+        width: calc(100% - var(--gutter) - var(--gutter));
+        max-width: none;
+    }
+
+    .nav-wrap nav {
+        gap: clamp(16px, 2vw, 32px);
+    }
 }
